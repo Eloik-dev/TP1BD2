@@ -31,7 +31,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.armes_dropdown.activated.connect(self.ajouterArme)
         self.armes_suppr_btn.clicked.connect(self.supprimerArme)
 
-        self.divers_insert_btn.clicked.connect(self._ajouter_item_table)
+        self.divers_insert_btn.clicked.connect(self.ajouterTableItem)
         self.divers_suppr_btn.clicked.connect(self.supprimerTableItem)
 
         self.sauvegarde_create_btn.clicked.connect(self.sauvegarder)
@@ -219,9 +219,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def supprimerArme(self):
         self.armes_list.takeItem(self.armes_list.currentRow())
-
-    def _ajouter_item_table(self):
-        self.ajouterTableItem()
     
     def ajouterTableItem(self, colonneIdx = None, valeur = ''):
         colonneIdx = colonneIdx or self.trouverIndexColonne(self.divers_combo.currentText())
